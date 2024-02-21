@@ -1,3 +1,3 @@
 # Kettleflame
 
-Just some boilerplate for the MERN stack.
+Just some boilerplate React+Vite+Typescript that I use for my projects.
