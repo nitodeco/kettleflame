@@ -27,61 +27,82 @@ rl.question(`Author (${author}): `, (newAuthor) => {
   rl.question(`Project name: `, (newName) => {
     rl.question(`License: `, (license) => {
       rl.question(`Remove git origin? [y/n]: `, (newOrigin) => {
-        console.log('Configuring project...')
+        rl.question(`Re-Initialize git? [y/n]: `, (reGit) => {
+          console.log('Configuring project...')
 
-        // Read the package.json file
-        fs.readFile('package.json', 'utf8', (err, data) => {
-          if (err) {
-            console.error('Error reading package.json:', err)
-            rl.close()
-            return
-          }
+          // Read the package.json file
+          fs.readFile('package.json', 'utf8', (err, data) => {
+            if (err) {
+              console.error('Error reading package.json:', err)
+              rl.close()
+              return
+            }
 
-          // Parse package.json data
-          let packageJson
-          try {
-            packageJson = JSON.parse(data)
-          } catch (jsonErr) {
-            console.error('Error parsing package.json:', jsonErr)
-            rl.close()
-            return
-          }
+            // Parse package.json data
+            let packageJson
+            try {
+              packageJson = JSON.parse(data)
+            } catch (jsonErr) {
+              console.error('Error parsing package.json:', jsonErr)
+              rl.close()
+              return
+            }
 
-          // Update the name field with the new project name
-          packageJson.name = newName
+            // Update the name field with the new project name
+            packageJson.name = newName
 
-          // Update the author field with the default author
-          packageJson.author = author
+            // Update the author field with the default author
+            packageJson.author = author
 
-          // Update the license field with the provided license
-          packageJson.license = license
+            // Update the license field with the provided license
+            packageJson.license = license
 
-          // Write the updated package.json back to file
-          fs.writeFile(
-            'package.json',
-            JSON.stringify(packageJson, null, 2),
-            (writeErr) => {
-              if (writeErr) {
-                console.error('Error writing package.json:', writeErr)
-              } else {
-                console.log('Done.')
-              }
+            // Write the updated package.json back to file
+            fs.writeFile(
+              'package.json',
+              JSON.stringify(packageJson, null, 2),
+              (writeErr) => {
+                if (writeErr)
+                  console.error('Error writing package.json:', writeErr)
 
-              origin = newOrigin
+                origin = newOrigin
 
-              if (origin === 'y') {
-                try {
-                  execSync('git remote remove origin')
-                } catch (error) {
-                  console.error(
-                    'Error fetching removing origin:',
-                    error.message
-                  )
+                if (origin === 'y') {
+                  try {
+                    execSync('git remote remove origin')
+                  } catch (error) {
+                    console.error(
+                      'Error fetching removing origin:',
+                      error.message
+                    )
+                  }
                 }
               }
-              rl.close()
-            }
-          )
+            )
+          })
+
+          if (reGit === 'y') {
+            const gitFolderPath = path.join(__dirname, '.git')
+
+            fs.rmdir(gitFolderPath, { recursive: true }, (err) => {
+              if (err) {
+                console.error('Error removing .git folder:', err)
+              } else {
+                const gitFolderPath = path.join(__dirname, '.git')
+
+                fs.rmdir(gitFolderPath, { recursive: true }, (err) => {
+                  if (err) {
+                    console.error('Error removing .git folder:', err)
+                  } else {
+                    console.log('.git folder removed successfully')
+                  }
+                })
+                console.log('.git folder removed successfully')
+              }
+            })
+          }
+          console.log('Done.')
+          rl.close()
         })
       })
     })
