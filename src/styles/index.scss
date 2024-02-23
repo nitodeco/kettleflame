@@ -1,0 +1,86 @@
+@import 'fonts';
+
+// Fonts
+$primary-font: 'Inter', sans-serif;
+$heading1-size: 3.2rem;
+$heading2-size: 2rem;
+$heading3-size: 1.75rem;
+$heading4-size: 1.5rem;
+$heading5-size: 1.25rem;
+$heading6-size: 1rem;
+
+// Colors
+$primary-color: #ef233c;
+$secondary-color: #8d99ae;
+$accent-color: #ffbc42;
+$background-color: #2b2d42;
+$text-color: #edf2f4;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: $primary-font, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $text-color;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: $heading1-size;
+}
+
+h2 {
+  font-size: $heading2-size;
+}
+
+h3 {
+  font-size: $heading3-size;
+}
+
+h4 {
+  font-size: $heading4-size;
+}
+
+h5 {
+  font-size: $heading5-size;
+}
+
+h6 {
+  font-size: $heading6-size;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: darken($primary-color, 10%);
+}
+
+.layout {
+  width: 100vw;
+  height: 100vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
