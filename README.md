@@ -8,28 +8,34 @@ Just some boilerplate React+Vite+Typescript that I use for my projects. Feel fre
 
 ```bash
 git clone https://github.com/nitodeco/virety
+cd virety
 ```
 
-2. **Navigate to the Project Directory:**
+2. **Install dependencies:**
 
-   - Once the cloning process is complete, navigate to the directory of the cloned project using the `cd` command. For example:
-     ```
-     cd example-project
-     ```
+```bash
+npm install
+```
 
-3. **Install Node.js Dependencies:**
+3. **Configure project**
 
-   - Inside the project directory, there should be a `package.json` file which lists all the Node.js dependencies required for the project.
-   - Run the following command to install these dependencies using npm:
-     ```
-     npm install
-     ```
-   - This command will download and install all the dependencies listed in the `package.json` file.
+```bash
+npm run config
+```
 
-4. **Verify Installation:**
+4. **Run development server**
 
-   - After the installation process completes, you can verify that all dependencies were installed successfully by checking for any error messages in the terminal.
-   - Additionally, you can also check the `node_modules` directory within the project to ensure that all dependencies were downloaded.
+```bash
+npm run dev
+```
 
-5. **Start Using the Project:**
-   - Once all dependencies are installed successfully, you can start using the project according to its documentation or instructions provided by the project maintainers.
+## Tools & Technologies
+
+- Vite
+- React
+- Sass
+- Axios
+
+## License
+
+Virety is licensed under the MIT license. See more under [License](LICENSE)
