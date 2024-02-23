@@ -66,21 +66,23 @@ rl.question(`Author (${author}): `, (newAuthor) => {
               } else {
                 console.log('Done.')
               }
-              // rl.close()
+
+              origin = newOrigin
+
+              if (origin === 'y') {
+                try {
+                  execSync('git remote remove origin')
+                } catch (error) {
+                  console.error(
+                    'Error fetching removing origin:',
+                    error.message
+                  )
+                }
+              }
+              rl.close()
             }
           )
         })
-
-        origin = newOrigin
-
-        if (origin === 'y') {
-          try {
-            execSync('git remote remove origin')
-          } catch (error) {
-            console.error('Error fetching removing origin:', error.message)
-            rl.close()
-          }
-        }
       })
     })
   })
