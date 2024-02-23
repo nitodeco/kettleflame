@@ -7,7 +7,7 @@ function App() {
     <>
       <h1>Virety</h1>
       <h2>Vite + React + Typescript</h2>
-      <div className="card">
+      <div>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
