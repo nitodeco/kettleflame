@@ -10,10 +10,10 @@ $heading5-size: 1.25rem;
 $heading6-size: 1rem;
 
 // Colors
-$primary-color: #ef233c;
+$primary-color: #e12238;
 $secondary-color: #8d99ae;
 $accent-color: #ffbc42;
-$background-color: #2b2d42;
+$background-color: #242424;
 $text-color: #edf2f4;
 
 body {
@@ -59,13 +59,40 @@ h6 {
 }
 
 a {
-  color: $primary-color;
+  color: $accent-color;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: darken($primary-color, 10%);
+  color: darken($accent-color, 20%);
+}
+
+button {
+  background-color: $primary-color;
+  border: none;
+  border-radius: 0.5em;
+  height: 3em;
+  width: 9em;
+  color: $text-color;
+  transition: $background-color 0.2s ease;
+  transition: transform 0.2 ease;
+}
+
+button:hover {
+  background-color: darken($primary-color, 5%);
+  cursor: pointer;
+}
+
+button:active {
+  background-color: darken($primary-color, 10%);
+  transform: scale(0.98);
+}
+
+pre,
+code {
+  font-family: monospace;
+  background-color: darken($background-color, 20%);
 }
 
 .layout {
