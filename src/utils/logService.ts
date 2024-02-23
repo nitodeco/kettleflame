@@ -1,6 +1,4 @@
-const isDev = process.env.NODE_ENVIRONMENT === 'development' ? true : false
-
-enum LogLevel {
+export enum LogLevel {
   DEBUG = 'DEBUG',
   INFO = 'INFO',
   WARNING = 'WARNING',
@@ -14,9 +12,8 @@ interface LogOptions {
 
 class LoggingService {
   log(options: LogOptions): void {
-    if (isDev) return
     const timestamp = new Date().toISOString()
-    const logMessage = `[${timestamp}] [${options.level}]: ${options.message}`
+    const logMessage = `[${timestamp}] ${options.level}: ${options.message}`
     console.log(logMessage)
   }
 
