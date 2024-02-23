@@ -29,12 +29,19 @@ npm run config
 npm run dev
 ```
 
-## Tools & Technologies
+## Testing
 
-- Vite
-- React
-- Sass
-- Axios
+Save files under <code>./tests</code> and as <code>\*.test.ts</code>.
+
+```bash
+npm run test
+```
+
+## Build
+
+```bash
+npm run build
+```
 
 ## License
 
