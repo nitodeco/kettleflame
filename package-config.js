@@ -82,25 +82,17 @@ rl.question(`Author (${author}): `, (newAuthor) => {
           })
 
           if (reGit === 'y') {
-            const gitFolderPath = path.join(__dirname, '.git')
+            const gitFolderPath = path.join(__dirname, '.git') // Adjust path if needed
 
             fs.rmdir(gitFolderPath, { recursive: true }, (err) => {
               if (err) {
                 console.error('Error removing .git folder:', err)
               } else {
-                const gitFolderPath = path.join(__dirname, '.git')
-
-                fs.rmdir(gitFolderPath, { recursive: true }, (err) => {
-                  if (err) {
-                    console.error('Error removing .git folder:', err)
-                  } else {
-                    console.log('.git folder removed successfully')
-                  }
-                })
                 console.log('.git folder removed successfully')
               }
             })
           }
+
           console.log('Done.')
           rl.close()
         })
