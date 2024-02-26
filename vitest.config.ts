@@ -15,7 +15,7 @@ export default defineConfig({
       '@styles': resolve('./src/styles'),
       '@utils': resolve('./src/utils'),
       '@features': resolve('./src/features'),
-      '@contexts': resolve('./src/contexts'),
+      '@stores': resolve('./src/stores'),
     },
   },
 })
