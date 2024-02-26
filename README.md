@@ -31,11 +31,15 @@ npm run dev
 
 ## Testing
 
-Save files under <code>./tests</code> and as <code>\*.test.ts</code>.
+Virety uses vitest for unit testing. Save tests in <code>./tests</code> and as <code>\*.test.ts</code>.
+
+**Run tests**
 
 ```bash
 npm run test
 ```
+
+See more in the [Vitest documentation](https://vitest.dev/guide/).
 
 ## Build
 
