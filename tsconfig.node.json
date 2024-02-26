@@ -11,7 +11,7 @@
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
-      "@contexts/*": ["src/contexts/*"],
+      "@stores/*": ["src/stores/*"],
       "@features/*": ["src/features/*"]
     }
   },
