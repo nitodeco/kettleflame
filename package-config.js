@@ -30,6 +30,14 @@ rl.question(`Author (${author}): `, (newAuthor) => {
         rl.question(`Re-Initialize git? [y/n]: `, (reGit) => {
           console.log('Configuring project...')
 
+          fs.rmdir(gitFolderPath, { recursive: true }, (err) => {
+            if (err) {
+              console.error('Error removing LICENSE file:', err)
+            } else {
+              console.log('LICENSE file removed successfully')
+            }
+          })
+
           // Read the package.json file
           fs.readFile('package.json', 'utf8', (err, data) => {
             if (err) {
